@@ -23,7 +23,7 @@ export const getPersonaId = async (req,res)=>{
 
 export const crearPersona = async (req,res)=>{
     try {
-        const {titulo, descripcion} = req.body;
+        const {apellidos, nombres, direccion, telefono} = req.body;
         await pool.query('select from fc_create_persona($1, $2, $3, $4)',[apellidos, nombres, direccion, telefono]);
         return res.status(200).json({
             message: 'Persona resgistrado correctamente...!'
@@ -36,7 +36,7 @@ export const crearPersona = async (req,res)=>{
 export const updatePersona = async (req,res)=>{
     try {
         const id = parseInt(req.params.id);
-        const {titulo, descripcion} = req.body;
+        const {apellidos, nombres, direccion, telefono} = req.body;
         await pool.query('select fc_update_persona($1, $2, $3, $4, $5)',[apellidos, nombres, direccion, telefono, id]);
         return res.status(200).json({
             message: 'persona actualizado correctamente...!'

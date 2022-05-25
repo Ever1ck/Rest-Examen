@@ -1,12 +1,12 @@
 import { Router } from 'express';
 
 const router = Router();
-import  * as postCtrl from '../controllers/persona.controller'
+import  * as personaCtrl from '../controllers/persona.controller'
 
-router.get('/', postCtrl.getPersonas)
-router.get('/:id', postCtrl.getPersonaId)
-router.post('/', postCtrl.crearPersona)
-router.put('/:id', postCtrl.updatePersona)
-router.delete('/:id', postCtrl.deletePersona)
+router.get('/', personaCtrl.getPersonas)
+router.get('/:id', personaCtrl.getPersonaId)
+router.post('/', personaCtrl.crearPersona)
+router.put('/:id', personaCtrl.updatePersona)
+router.delete('/:id', personaCtrl.deletePersona)
 
 export default router;

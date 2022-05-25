@@ -23,8 +23,8 @@ export const getRolId = async (req,res)=>{
 
 export const crearRol = async (req,res)=>{
     try {
-        const {titulo, descripcion} = req.body;
-        await pool.query('select from fc_create_rol($1, $2)',[nombre, estado]);
+        const {nombre} = req.body;
+        await pool.query('select from fc_create_rol($1)',[nombre]);
         return res.status(200).json({
             message: 'Rol resgistrado correctamente...!'
         });
@@ -36,8 +36,8 @@ export const crearRol = async (req,res)=>{
 export const updateRol = async (req,res)=>{
     try {
         const id = parseInt(req.params.id);
-        const {titulo, descripcion} = req.body;
-        await pool.query('select fc_update_rol($1, $2, $3)',[nombre, estado, id]);
+        const {nombre} = req.body;
+        await pool.query('select fc_update_rol($1, $2)',[nombre, id]);
         return res.status(200).json({
             message: 'Rol actualizado correctamente...!'
         });
